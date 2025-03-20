@@ -1,4 +1,5 @@
 from turtle import *
+import turtle
 from freegames import vector
 
 
@@ -26,7 +27,21 @@ def square(start, end):
 
 def circle(start, end):
     "Draw circle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    
+    radio = ((end.x - start.x) ** 2 + (end.y - start.y) ** 2) ** 0.5
+
+    up()
+    goto(start.x, start.y - radio)
+    down()
+    
+    
+    turtle.circle(radio)
+
+    end_fill()
 
 
 def rectangle(start, end):
@@ -92,4 +107,5 @@ onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
+onkey(lambda: color('yellow'), 'Y')
 done()
